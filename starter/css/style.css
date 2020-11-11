@@ -48,3 +48,33 @@ body {
 .logo {
     height: 35px;
 }
+
+
+/* Block elements occupy the entire width available */
+
+.primary-header {
+    color: white;
+    text-transform: uppercase;
+}
+
+/* the translate method change the position to the element itself */
+
+.header-text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.header-title {
+    display: block;
+    font-size: 60px;
+    font-weight: 400;
+    letter-spacing: 35px;
+}
+
+.header-subtitle {
+    display: block;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 17.5px;
+}
