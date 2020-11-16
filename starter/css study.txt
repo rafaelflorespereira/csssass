@@ -1,0 +1,1 @@
+add npm live-server -g dependency

@@ -1,9 +1,15 @@
-$color-primary: #7ed56f;
-$color-primary-light: #55c57a;
-$color-primary-dark: #28b485;
-$color-grey-dark: #777;
-$color-white: #fff;
+/*
+COLORS:
 
+Light green: #7ed56f
+Medium green: #55c57a
+Dark green: #28b485
+
+*/
+
+/* Universal selector */
+/* inherit box-sizing will make every element inherit the box-sizing from body. */
+/* Universel selector must be added for the PSEUDO-ELEMENTS */
 *,
 *::after,
 *::before {
@@ -11,6 +17,9 @@ $color-white: #fff;
   padding: 0;
   box-sizing: inherit;
 }
+/* Global values */
+/* 1 rem = 10px */
+/* 62.5% is 10px of the parent 16px which is the broswer's default */
 html {
   font-size: 62.5%;
 }
@@ -20,14 +29,17 @@ body {
   font-weight: 400;
   font-size: 1.6rem;
   line-height: 1.7;
-  color: $color-grey-dark;
+  color: #777;
   padding: 3rem;
   box-sizing: border-box;
 }
 
+/* VH is ViewHeight, so 95VH is 95% of the view height */
+/* Cover to adjust size */
+/* clip path cuts the element */
 .header {
   height: 95vh;
-  background-image: linear-gradient(to right bottom, rgba($color-primary-light, 0.8), rgba($color-primary-dark, 0.8)),
+  background-image: linear-gradient(to right bottom, #7ed56fb0, #28b485b0),
     url(../img/hero.jpg);
   background-size: cover;
   background-position: top;
@@ -39,7 +51,7 @@ body {
   position: absolute;
   top: 4rem;
   left: 4rem;
-  color: $color-white;
+  color: white;
 }
 
 .header__logo {
@@ -50,17 +62,20 @@ body {
 }
 .header__logo-text {
   top: 8rem;
-  color: $color-white;
+  color: white;
 }
 .header__logo-text:hover {
   animation: fadeOut 1s ease-out infinite;
 }
+/* Block elements occupy the entire width available */
+/* backface fix the back side of the translated element */
 .primary-heading {
-  color: $color-white;
+  color: white;
   text-transform: uppercase;
   backface-visibility: hidden;
 }
 
+/* the translate method change the position to the element itself */
 
 .header__text-box {
   position: absolute;
@@ -70,6 +85,8 @@ body {
   text-align: center;
 }
 
+/* The are 2 properties for animation to be added */
+/* Animation name and Animation Duration */
 .primary-heading--title {
   display: block;
   font-size: 6rem;
@@ -80,6 +97,7 @@ body {
   animation-timing-function: ease-out;
 }
 
+/* With the animation property you can add all the subproperties to only one line */
 .primary-heading--subtitle {
   display: block;
   font-size: 2rem;
@@ -89,20 +107,26 @@ body {
   margin-bottom: 6rem;
 }
 
+/* Transition properties */
+/* The browser is optmized to only two properties */
+/* Opacity and transform */
 
 @keyframes moveInLeft {
   0% {
     opacity: 0;
     transform: translateX(-10rem);
   }
+  /* 166px */
   55% {
     opacity: 0.5;
     transform: translateX(6.6rem);
   }
+  /* 265 */
   89% {
     opacity: 0.8;
     transform: translateX(-3.3rem);
   }
+  /* 298 */
   100% {
     opacity: 1;
     transform: translate(0);
@@ -152,14 +176,17 @@ body {
   }
 }
 
+/* Pseudo-classes */
+/* border-radius shapes the edges */
+/* transition used for the border shadow */
 .btn:link,
 .btn:visited {
   padding: 1.5rem 4rem;
   text-decoration: none;
   text-transform: uppercase;
   display: inline-block;
-  background-color: $color-white;
-  color: $color-grey-dark;
+  background-color: white;
+  color: #777;
   border-radius: 10rem;
   transition: all 0.2s;
   position: relative;
@@ -171,11 +198,17 @@ body {
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.4);
 }
 
+/* ACTIVE is the pseudo class for click */
+/* the translate is in relation to the link pseudo class not the hover */
 .btn:active {
   transform: translateY(-0.1rem);
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.4);
 }
 
+/* After Pseudo element */
+/* is is treated as the child of the button, that is why we use the 100% dimensions */
+/* content is always necessary */
+/*? Absolute position is related to the last relative position parent */
 .btn::after {
   content: "";
   display: inline-block;
@@ -190,21 +223,36 @@ body {
 }
 
 .btn--white {
-  background-color: $color-white;
-  color: $color-grey-dark;
+  background-color: white;
+  color: #777;
 }
 
 .btn--white::after {
-  background-color: $color-white;
+  background-color: white;
 }
 
 .btn--animated {
   animation: moveInButtomBottom 1s ease-out;
 }
+/*!!!: The animation can be done by adding the animation by !keyframe or directly */
 .btn:hover::after {
+  /* animation: bigger .4s; */
   transform: scale(1.6, 1.3);
   opacity: 0;
 }
+
+/* When using animations by keyframes they only happen once when it is activated */
+/* @keyframes bigger {
+    0% {
+        opacity: 1;
+        transform: scale(0);
+    }
+    100% {
+        transform: scaleX(1.6) scaleY(1.4);
+        opacity: 0;
+    }
+} */
+
 
 @keyframes moveInButtomBottom {
   0% {
@@ -217,6 +265,7 @@ body {
   }
 }
 
+/* the animation-fill-mode sets the properties from the 0% in the animation before the animation-delay */
 .btn-slide-up-animation {
     animation: moveInBottom .5s ease-out .7s;
     animation-fill-mode: backwards;
