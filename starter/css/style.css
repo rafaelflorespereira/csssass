@@ -181,7 +181,6 @@ body {
     border-radius: 100px;
     transition: all .2s;
     position: relative;
-    animation: moveInButtomBottom 1s ease-out;
     backface-visibility: hidden;
 }
 
@@ -236,13 +235,19 @@ body {
     }
 } */
 
-@keyframes moveInButtomBottom {
+@keyframes moveInBottom{
     0% {
         opacity: 0;
-        transform: translateY(30px)
+        transform: scaleX(0)
     }
     100% {
         opacity: 1;
-        transform: translate(0);
+        transform: scaleX(1);
     }
+}
+
+/* the animation-fill-mode sets the properties from the 0% in the animation before the animation-delay */
+.btn-slide-up-animation {
+    animation: moveInBottom .5s ease-out .7s;
+    animation-fill-mode: backwards;
 }
