@@ -91,6 +91,44 @@ body {
     animation: moveInRight 1s ease-out;
     margin-bottom: 6rem; }
 
+/* inline-bloc is treated as text, so align-text : center works for it */
+.secondary-heading {
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  background-image: linear-gradient(to right, #55c57a, #28b485);
+  display: inline-block;
+  -webkit-background-clip: text;
+  color: transparent;
+  letter-spacing: 2px; }
+  .secondary-heading:hover {
+    transform: skewY(2deg) skewX(15deg);
+    text-shadow: 0.5rem 1rem 2rem rgba(0, 0, 0, 0.2);
+    transition: all 0.2s; }
+
+.tertiary-heading {
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-transform: uppercase; }
+
+.paragraph {
+  font-size: 1.6rem; }
+  .paragraph:not(:last-child) {
+    margin-bottom: 3rem; }
+
+/* USE wherever in the project */
+.u-center-text {
+  text-align: center; }
+
+.u-bottom-margin-big {
+  margin-bottom: 8rem; }
+
+.u-bottom-margin-medium {
+  margin-bottom: 4rem; }
+
+.u-bottom-margin-small {
+  margin-bottom: 1.5rem; }
+
 body {
   font-family: "Lato", sans-serif;
   font-weight: 400;
@@ -118,6 +156,31 @@ body {
     letter-spacing: 1.7rem;
     animation: moveInRight 1s ease-out;
     margin-bottom: 6rem; }
+
+/* inline-bloc is treated as text, so align-text : center works for it */
+.secondary-heading {
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  background-image: linear-gradient(to right, #55c57a, #28b485);
+  display: inline-block;
+  -webkit-background-clip: text;
+  color: transparent;
+  letter-spacing: 2px; }
+  .secondary-heading:hover {
+    transform: skewY(2deg) skewX(15deg);
+    text-shadow: 0.5rem 1rem 2rem rgba(0, 0, 0, 0.2);
+    transition: all 0.2s; }
+
+.tertiary-heading {
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-transform: uppercase; }
+
+.paragraph {
+  font-size: 1.6rem; }
+  .paragraph:not(:last-child) {
+    margin-bottom: 3rem; }
 
 .btn:link, .btn:visited {
   padding: 1.5rem 4rem;
@@ -194,3 +257,34 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center; }
+
+.row {
+  max-width: 114rem;
+  margin: 0 auto; }
+  .row:not(:last-child) {
+    margin-bottom: 8rem; }
+  .row::after {
+    content: "";
+    display: table;
+    clear: both; }
+  .row [class^="col-"] {
+    float: left; }
+    .row [class^="col-"]:not(:last-child) {
+      margin-right: 2rem; }
+  .row .col-1-of-2 {
+    width: calc((100% - 2rem) / 2); }
+  .row .col-1-of-3 {
+    width: calc((100% - 2 *2rem) / 3); }
+  .row .col-2-of-3 {
+    width: calc( 2 * ((100% - 2 *2rem) / 3) + 2rem); }
+  .row .col-1-of-4 {
+    width: calc((100% - 3 * 2rem) / 4); }
+  .row .col-2-of-4 {
+    width: calc(2 * (100% - 2rem) / 4); }
+  .row .col-3-of-4 {
+    width: calc( 3 * ((100% - 3 * 2rem) / 4) + 2 * 2rem); }
+
+.section-about {
+  background-color: #f7f7f7;
+  padding: 25rem 0;
+  margin-top: -25vh; }
