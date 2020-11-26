@@ -24,7 +24,7 @@ body {
     display: block;
     font-size: 2rem;
     font-weight: 600;
-    letter-spacing: 1.7rem;
+    letter-spacing: 1.5rem;
     animation: moveInRight 1s ease-out;
     margin-bottom: 6rem;
   }
@@ -54,11 +54,12 @@ body {
 
 .tertiary-heading {
   font-size: $default-font-size;
-  font-weight: 700;
+  font-weight: 600;
   text-transform: uppercase;
 }
 
 .paragraph {
+  text-align: center;
   font-size: $default-font-size;
 
   &:not(:last-child) {
