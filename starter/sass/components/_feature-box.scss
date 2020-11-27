@@ -1,14 +1,12 @@
 .feature-box {
   text-align: center;
   background-color: rgba($color-white, 0.8);
-  position: relative;
-  top: 10vh;
   font-size: 1.5rem;
+  position: relative;
   padding: 2.5rem;
   border-radius: 3px;
   box-shadow: 0 1.4rem 4rem rgba($color-black, 0.15);
   transition: all 0.4s;
-  max-height: 28rem;
   &__icon {
     font-size: 6rem;
     margin-bottom: 0.5rem;
