@@ -154,10 +154,7 @@
 
   //BACK SIDE STYLING
   &__cta {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    @include absCenter;
     width: 90%;
     text-align: center;
   }
@@ -181,10 +178,7 @@
   //BACK SIDE STYLING
   //this is another way to centralize components when its position is absolute
   &__cta {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    @include absCenter;
     width: 90%;
     text-align: center;
   }

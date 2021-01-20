@@ -12,6 +12,8 @@
     top: 6rem;
     right: 6rem;
     box-shadow: 0 1rem 3rem rgba($color-black, 0.1);
+    text-align: center;
+    cursor: pointer;
   }
 
   &__background {
@@ -38,10 +40,7 @@
     transition: all 0.8s cubic-bezier(0.68, -0.6, 0.32, 1.6);
   }
   &__list {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    @include absCenter;
     list-style: none;
     text-align: center;
   }
@@ -80,11 +79,63 @@
     }
   }
 
+  //Functionality
   &__checkbox:checked ~ &__background {
     transform: scale(80);
   }
   &__checkbox:checked ~ &__nav {
     opacity: 1;
     width: 100%;
+  }
+
+  //Icon
+  &__icon {
+    position: relative;
+    margin-top: 50%;
+    &,
+    &::before,
+    &::after {
+      width: 3rem;
+      height: 2px;
+      background-color: $color-grey-dark-3;
+      display: inline-block;
+    }
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      transition: all 0.2s;
+    }
+    &::before {
+      top: -0.8rem;
+    }
+    &::after {
+      top: 0.8rem;
+    }
+  }
+
+  &__button:hover &__icon {
+    &::after {
+      // it could be used top instead of transform
+      transform: translateY(0.2rem);
+    }
+    &::before {
+      transform: translateY(-0.2rem);
+    }
+  }
+
+  &__checkbox:checked + &__button &__icon {
+    //dont change the display none or something else, because it would change the positioning of the before and after elements
+    background-color: transparent;
+    &::before {
+      top: 0;
+      transform: rotate(135deg);
+    }
+    &::after {
+      top: 0;
+      transform: rotate(-135deg);
+    }
   }
 }
