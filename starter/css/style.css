@@ -1,3 +1,9 @@
+/*ORDER
+  base + typography
+  > general layout + grid
+  > page layout
+  > components
+*/
 /* this is a partial CSS file */
 *,
 *::after,
@@ -11,9 +17,30 @@ html {
   /* This defines what 1 rem must be */
   font-size: 62.5%;
 }
+@media (max-width: 56.25em) {
+  html {
+    font-size: 56.25%;
+  }
+}
+@media (max-width: 75em) {
+  html {
+    font-size: 50%;
+  }
+}
+@media (max-width: 112.5em) {
+  html {
+    font-size: 75%;
+  }
+}
 
 body {
   box-sizing: border-box;
+  padding: 3rem;
+}
+@media (max-width: 56.25em) {
+  body {
+    padding: 0;
+  }
 }
 
 @keyframes moveInLeft {
@@ -87,7 +114,6 @@ body {
   font-size: 1.6rem;
   line-height: 1.7;
   color: #777;
-  padding: 3rem;
 }
 
 .primary-heading {
@@ -104,6 +130,12 @@ body {
   animation-duration: 1s;
   animation-timing-function: ease-out;
 }
+@media (max-width: 37.5em) {
+  .primary-heading--title {
+    font-size: 5rem;
+    letter-spacing: 1rem;
+  }
+}
 .primary-heading--subtitle {
   display: block;
   font-size: 2rem;
@@ -111,6 +143,12 @@ body {
   letter-spacing: 1.5rem;
   animation: moveInRight 1s ease-out;
   margin-bottom: 6rem;
+}
+@media (max-width: 37.5em) {
+  .primary-heading--subtitle {
+    font-size: 1.8rem;
+    letter-spacing: 0.5rem;
+  }
 }
 
 /* inline-bloc is treated as text, so align-text : center works for it */
@@ -123,6 +161,16 @@ body {
   -webkit-background-clip: text;
   color: transparent;
   letter-spacing: 2px;
+}
+@media (max-width: 75em) {
+  .secondary-heading {
+    font-size: 2.5rem;
+  }
+}
+@media (max-width: 37.5em) {
+  .secondary-heading {
+    font-size: 2rem;
+  }
 }
 .secondary-heading:hover {
   transform: skewY(4deg) skewX(15deg);
@@ -171,7 +219,6 @@ body {
   font-size: 1.6rem;
   line-height: 1.7;
   color: #777;
-  padding: 3rem;
 }
 
 .primary-heading {
@@ -188,6 +235,12 @@ body {
   animation-duration: 1s;
   animation-timing-function: ease-out;
 }
+@media (max-width: 37.5em) {
+  .primary-heading--title {
+    font-size: 5rem;
+    letter-spacing: 1rem;
+  }
+}
 .primary-heading--subtitle {
   display: block;
   font-size: 2rem;
@@ -195,6 +248,12 @@ body {
   letter-spacing: 1.5rem;
   animation: moveInRight 1s ease-out;
   margin-bottom: 6rem;
+}
+@media (max-width: 37.5em) {
+  .primary-heading--subtitle {
+    font-size: 1.8rem;
+    letter-spacing: 0.5rem;
+  }
 }
 
 /* inline-bloc is treated as text, so align-text : center works for it */
@@ -207,6 +266,16 @@ body {
   -webkit-background-clip: text;
   color: transparent;
   letter-spacing: 2px;
+}
+@media (max-width: 75em) {
+  .secondary-heading {
+    font-size: 2.5rem;
+  }
+}
+@media (max-width: 37.5em) {
+  .secondary-heading {
+    font-size: 2rem;
+  }
 }
 .secondary-heading:hover {
   transform: skewY(4deg) skewX(15deg);
@@ -438,27 +507,6 @@ body {
 .card__price-box {
   text-align: center;
   color: #fff;
-  margin-bottom: 8rem;
-}
-.card__price-only {
-  font-size: 1.4rem;
-  text-transform: uppercase;
-}
-.card__price-value {
-  font-size: 6rem;
-  font-weight: 100;
-}
-.card__cta {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 90%;
-  text-align: center;
-}
-.card__price-box {
-  color: #fff;
-  text-align: center;
   margin-bottom: 8rem;
 }
 .card__price-only {
@@ -749,9 +797,19 @@ body {
   padding: 10rem 0;
   font-size: 1.3rem;
 }
+@media (max-width: 75em) {
+  .footer {
+    padding: 8rem 0;
+  }
+}
 .footer__logo-box {
   text-align: center;
   margin-bottom: 8rem;
+}
+@media (max-width: 75em) {
+  .footer__logo-box {
+    margin-bottom: 4rem;
+  }
 }
 .footer__logo {
   width: 15rem;
@@ -761,6 +819,12 @@ body {
   border-top: 1px solid #777;
   padding-top: 2rem;
   float: left;
+}
+@media (max-width: 75em) {
+  .footer__navigation {
+    width: 100%;
+    text-align: center;
+  }
 }
 .footer__list {
   list-style: none;
@@ -792,6 +856,13 @@ body {
   float: right;
   text-align: left;
 }
+@media (max-width: 75em) {
+  .footer__copyright {
+    width: 100%;
+    text-align: center;
+    float: none;
+  }
+}
 
 .row {
   max-width: 114rem;
@@ -799,6 +870,17 @@ body {
 }
 .row:not(:last-child) {
   margin-bottom: 8rem;
+}
+@media (max-width: 75em) {
+  .row:not(:last-child) {
+    margin-bottom: 6rem;
+  }
+}
+@media (max-width: 75em) {
+  .row {
+    max-width: 50rem;
+    padding: 0 3rem;
+  }
 }
 .row::after {
   content: "";
@@ -810,6 +892,17 @@ body {
 }
 .row [class^=col-]:not(:last-child) {
   margin-right: 6rem;
+}
+@media (max-width: 75em) {
+  .row [class^=col-]:not(:last-child) {
+    margin-right: 0;
+    margin-bottom: 6rem;
+  }
+}
+@media (max-width: 75em) {
+  .row [class^=col-] {
+    width: 100% !important;
+  }
 }
 .row .col-1-of-2 {
   width: calc((100% - 6rem) / 2);
@@ -838,6 +931,12 @@ body {
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   position: relative;
+}
+@media (max-width: 37.5em) {
+  .header {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 90vh, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 90vh, 0 100%);
+  }
 }
 .header__logo-box {
   position: absolute;
@@ -886,6 +985,18 @@ body {
   text-align: center;
   cursor: pointer;
 }
+@media (max-width: 75em) {
+  .navigation__button {
+    top: 4.5rem;
+    right: 4.5rem;
+  }
+}
+@media (max-width: 37.5em) {
+  .navigation__button {
+    top: 3rem;
+    right: 3rem;
+  }
+}
 .navigation__background {
   height: 6rem;
   width: 6rem;
@@ -896,6 +1007,18 @@ body {
   right: 6.5rem;
   background-image: radial-gradient(#7ed56f, #28b485);
   transition: transform 0.8s cubic-bezier(0.83, 0, 0.17, 1);
+}
+@media (max-width: 75em) {
+  .navigation__background {
+    top: 4.5rem;
+    right: 4.5rem;
+  }
+}
+@media (max-width: 37.5em) {
+  .navigation__background {
+    top: 3rem;
+    right: 3rem;
+  }
 }
 .navigation__nav {
   height: 100vh;
