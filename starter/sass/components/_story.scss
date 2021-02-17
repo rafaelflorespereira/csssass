@@ -10,9 +10,23 @@
   font-size: $default-font-size;
   transform: skewX(-12deg);
 
+  @include respond(tab-port) {
+    width: 100%;
+    padding: 4rem;
+    /* this is padding is here because of the translated circle */
+    padding-left: 7rem;
+  }
+
+  @include respond(phone) {
+    transform: skew(0);
+  }
+
   /* DIRECT CHILD SELECTOR */
   & > * {
     transform: skewX(12deg);
+    @include respond(phone) {
+      transform: skew(0);
+    }
   }
 
   &__shape {
@@ -28,6 +42,9 @@
     clip-path: circle(50% at 50% 50%);
     /* When changin positions with a floating element is best to use transform instead of messing with paddings and margins */
     transform: translateX(-3rem) skewX(12deg);
+    @include respond(phone) {
+      transform: translateX(-3rem) skew(0);
+    }
   }
 
   &__image {
